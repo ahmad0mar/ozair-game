@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Bebas+Neue:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --font-heading: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Orbitron', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+  html { background: #03040a; scroll-behavior: smooth; }
+  body { @apply font-body; background: #03040a; color: #ffffff; margin: 0; }
+  ::selection { background: #6aa0ff; color: #03040a; }
+}
+
+@keyframes planetRotate { from { background-position-x: 0%; } to { background-position-x: -200%; } }
+@keyframes orbit { from { transform: translate(-50%,-50%) rotate(0deg); } to { transform: translate(-50%,-50%) rotate(360deg); } }
+@keyframes glowPulse { 0%,100% { box-shadow: 0 0 60px 20px rgba(255,160,40,0.7); } 50% { box-shadow: 0 0 80px 28px rgba(255,180,60,0.85); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes ufoDrift { 0% { left: -80px; } 100% { left: 110vw; } }
+@keyframes spotFlash { 0%,100% { filter: brightness(1); transform: scale(1); } 50% { filter: brightness(2.4); transform: scale(1.5); } }
+@keyframes slowFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes scanSweep { 0% { transform: translateY(-50%); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(50%); opacity: 0; } }
+@keyframes launchShake { 0%,100% { transform: translate(0,0); } 25% { transform: translate(-2px,1px); } 50% { transform: translate(2px,-1px); } 75% { transform: translate(-1px,-2px); } }
+@keyframes launchStars { 0% { transform: scaleY(0.3); opacity: 0; } 30% { opacity: 1; } 100% { transform: scaleY(40); opacity: 0; } }
+@keyframes finaleZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
+@keyframes shootStar {
+  0% { transform: translate(-12vw,-12vh) rotate(45deg); opacity: 0; }
+  10% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: translate(120vw,120vh) rotate(45deg); opacity: 0; }
+}
+
+.scan-sweep { animation: scanSweep 1.4s ease-in-out infinite; }
+.launch-shake { animation: launchShake 0.12s linear infinite; }
+.launch-stars { animation: launchStars 1.2s ease-in infinite; }
+.ufo-drift { animation: ufoDrift 22s linear forwards; }
+.spot-flash { animation: spotFlash 0.6s ease; }
+.finale-zoom { animation: finaleZoom 14s ease-in-out infinite alternate; }
+.shooting-star { animation: shootStar 2.8s linear forwards; }
